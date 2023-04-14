@@ -16,7 +16,7 @@ def print_stats():
     """
     global total_size, status_codes
     print("File size: {}".format(total_size))
-    for status, value in sorted(status_codes.keys()):
+    for status, value in sorted(status_codes.items()):
         if value != 0:
             print("{}: {}".format(status, value))
 
