@@ -16,8 +16,9 @@ def print_stats():
     """
     global total_size, status_codes
     print("File size: {}".format(total_size))
-    for status in sorted(status_codes.keys()):
-        print("{}: {}".format(status, status_codes[status]))
+    for status, value in sorted(status_codes.keys()):
+        if value != 0:
+            print("{}: {}".format(status, value))
 
 
 try:
@@ -30,7 +31,8 @@ try:
             if status_code in status_codes.keys():
                 status_codes[status_code] += 1
         line_count += 1
-        if line_count % 10 == 0:
+        if line_count == 10:
+            line_count = 0
             print_stats()
 
 except Exception as err:
