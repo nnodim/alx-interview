@@ -1,10 +1,10 @@
 #!/usr/bin/node
-const request = require("request");
+const request = require('request');
 
 const movieId = process.argv[2];
 const movieUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
-function makeRequest(characters, index) {
+function makeRequest (characters, index) {
   if (characters.length === index) {
     return;
   }
@@ -24,7 +24,7 @@ request(movieUrl, (error, response, body) => {
     console.log(error);
   } else {
     const data = JSON.parse(body);
-    const characters = data["characters"];
+    const characters = data.characters;
 
     makeRequest(characters, 0);
   }
