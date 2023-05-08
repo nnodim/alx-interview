@@ -4,20 +4,28 @@ const request = require("request");
 const movieId = process.argv[2];
 const movieUrl = `https://swapi.dev/api/films/${movieId}/`;
 
-// Make request for movie data
+function makeRequest(characters, index) {
+  if (characters.length === index) {
+    return;
+  }
+
+  request(characters[index], (error, response, body) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(JSON.parse(body).name);
+      makeRequest(characters, index + 1);
+    }
+  });
+}
+
 request(movieUrl, (error, response, body) => {
-  if (!error && response.statusCode == 200) {
+  if (error) {
+    console.log(error);
+  } else {
     const data = JSON.parse(body);
     const characters = data["characters"];
 
-    // Loop through characters and print each one
-    characters.forEach(function (characterUrl) {
-      request(characterUrl, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-          const characterData = JSON.parse(body);
-          console.log(characterData["name"]);
-        }
-      });
-    });
+    makeRequest(characters, 0);
   }
 });
