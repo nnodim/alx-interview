@@ -8,11 +8,11 @@ def rotate_2d_matrix(matrix):
     '''
     rotates a 2d matrix 90 degrees clockwise
     '''
-    left = 0 
+    left = 0
     right = len(matrix) - 1
 
     while left < right:
-        top = left 
+        top = left
         bottom = right
         for i in range(right - left):
             topLeft = matrix[top][left + i]
