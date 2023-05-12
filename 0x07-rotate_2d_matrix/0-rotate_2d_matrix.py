@@ -2,14 +2,23 @@
 """
 0. Rotate 2D Matrix
 """
+
+
 def rotate_2d_matrix(matrix):
-    """
-    rotate a 2D array 90 degrees clockwise.
-    """
-    n = len(matrix)
-    for i in range(n):
-        for j in range(i, n):
-            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-    for i in range(n // 2):
-        matrix[i], matrix[n - i - 1] = matrix[n - i - 1], matrix[i]
-    return matrix
+    '''
+    rotates a 2d matrix 90 degrees clockwise
+    '''
+    left = 0 
+    right = len(matrix) - 1
+
+    while left < right:
+        top = left 
+        bottom = right
+        for i in range(right - left):
+            topLeft = matrix[top][left + i]
+            matrix[top][left + i] = matrix[bottom - i][left]
+            matrix[bottom - i][left] = matrix[bottom][right - i]
+            matrix[bottom][right - i] = matrix[top + i][right]
+            matrix[top + i][right] = topLeft
+        right -= 1
+        left += 1
