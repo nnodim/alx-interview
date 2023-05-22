@@ -12,7 +12,7 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    min_num = [sys.maxsize for i in range(total + 1)]
+    min_num = [float('inf')] * (total + 1)
     min_num[0] = 0
 
     for i in range(1, total + 1):
@@ -21,7 +21,7 @@ def makeChange(coins, total):
                 min_num[i] = min(
                     min_num[i], 1 + min_num[i - coin])
 
-    if min_num[total] == sys.maxsize:
+    if min_num[total] == float('inf'):
         return -1
 
     return min_num[total]
