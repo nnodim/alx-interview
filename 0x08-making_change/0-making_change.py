@@ -2,7 +2,6 @@
 """
 0x08. Making Change
 """
-import sys
 
 
 def makeChange(coins, total):
