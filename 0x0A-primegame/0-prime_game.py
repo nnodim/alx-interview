@@ -4,7 +4,7 @@
 """
 
 
-def is_winner(x, nums):
+def isWinner(x, nums):
     """
     Determines the winner between Maria and Ben
     based on the results of playing a game.
@@ -12,7 +12,7 @@ def is_winner(x, nums):
     winner_counter = {'Maria': 0, 'Ben': 0}
 
     for i in range(x):
-        round_winner = is_round_winner(nums[i], x)
+        round_winner = isRoundWinner(nums[i], x)
         if round_winner is not None:
             winner_counter[round_winner] += 1
 
@@ -24,7 +24,7 @@ def is_winner(x, nums):
         return None
 
 
-def is_round_winner(n, x):
+def isRoundWinner(n, x):
     """
     Determines the winner of a game where
     two players take turns removing numbers from a list.
@@ -42,7 +42,7 @@ def is_round_winner(n, x):
                 if num % prime == 0:
                     selected_ids.append(idx)
             else:
-                if is_prime(num):
+                if isPrime(num):
                     selected_ids.append(idx)
                     prime = num
 
@@ -55,7 +55,7 @@ def is_round_winner(n, x):
     return None
 
 
-def is_prime(n):
+def isPrime(n):
     """
     Determines if a given integer is prime.
     """
