@@ -59,7 +59,7 @@ def isPrime(n):
     """
     Determines if a given integer is prime.
     """
-    if n < 2 or (n % 2 == 0 and n > 2):
+    if n == 1 or n == 0 or (n % 2 == 0 and n > 2):
         return False
     else:
         for i in range(3, int(n ** 0.5) + 1, 2):
