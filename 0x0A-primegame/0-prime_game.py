@@ -2,9 +2,11 @@
 """
 0x0A. Prime Game
 """
+
+
 def isWinner(x, nums):
     """
-    Determines the winner of a game based on a list of numbers. 
+    Determines the winner of a game based on a list of numbers.
     """
     def is_prime(n):
         """
@@ -26,7 +28,7 @@ def isWinner(x, nums):
     def play_game(lst):
         """
         This function takes a list of integers 'lst' as input
-        and plays a game between Maria and Ben. 
+        and plays a game between Maria and Ben.
         """
         maria_turn = True
         while lst:
